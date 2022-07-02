@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB 7</title>
+</head>
+<body>
+    <div style="padding-right: 50%;">
+        <fieldset id="info">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="name" required="required" />
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="name" required="required" />
+            <label for="age">Age</label>
+            <input type="number" id="age" name="name" required="required" />
+            <label for="snumber">Student Name</label>
+            <input type="text" id="snumber" name="name" required="required" />
+    
+         </fieldset>
+
+         <fieldset id="semester">
+            <input type="radio" id="1" name="semesterinput" value="1st Semester" />
+            <label for="1">1st Semester</label>
+          
+            <input type="radio" id="2" name="semesterinput" value="2nd Semester"/>
+            <label for="2">2nd Semester</label>
+          
+            <input type="radio" id="3" name="semesterinput" value="3rd Semester" />
+            <label for="3">3rd Semester</label>
+           
+            <input type="radio" id="4" name="semesterinput" value="4th Semester" />
+            <label for="4">4th Semester</label>
+           
+            <input type="radio" id="5" name="semesterinput" value="5th Semester"/>
+            <label for="5">5th Semester</label>
+            
+            <input type="radio" id="6" name="semesterinput" value="6th Semester" />
+            <label for="6">6th Semester</label>
+  
+            <input type="radio" id="7" name="semesterinput" value="7th Semester"/>
+            <label for="7">7th Semester</label>
+            
+            <input type="radio" id="8" name="semesterinput" value="8th Semester" />
+            <label for="8">8th Semester</label>
+         
+         </fieldset>
+
+         <fieldset id="status">
+            <input type="radio" id="registered" name="statusinput" value="registered" />
+            <label for="registered">registered</label>
+         
+            <input type="radio" id="unregistered" name="statusinput" value="unregistered"/>
+            <label for="unregistered">unregistered</label>
+         
+            <input type="radio" id="provosional" name="statusinput" value="provosional"/>
+            <label for="provosional">provosional</label>
+         
+         </fieldset>
+
+         <button onclick="addSubmit()">Add Submit</button>
+    </div>
+
+    <div style="padding-left: 50%;">
+
+        <div id="container"></div>
+    </div>
+
+
+    <script>
+
+        function addSubmit(){
+
+            var informations = {};
+
+            informations.fname = document.getElementById("fname").value;
+            informations.lname = document.getElementById("lname").value;
+            informations.age = document.getElementById("age").value;
+            informations.snumber = document.getElementById("snumber").value;
+            var semester = document.getElementsByName("semesterinput");
+            var status = document.getElementsByName("statusinput");
+
+            
+            for(var i = 0; i < semester.length; i++){
+                if(semester[i].checked){
+                    informations.semester = semester[i].value;
+                }
+            }
+            for(var i = 0; i < status.length; i++){
+                if(status[i].checked){
+                    informations.status = status[i].value;
+                }
+            }
+            
+
+        
+            
+           /*
+            for(element in semester){
+                if(element.checked){
+                    information.semester = element.value;
+                    console.log(element.value);
+                }
+            }
+            for(element in status){
+                if(element.checked){
+                    information.status = element.value;
+                }
+            }
+            
+            */
+
+            document.getElementById("container").innerHTML =
+            "<h3> First Name </h3>" +
+             "<p>" + informations.fname + "</p>" +
+             "<h3> Last Name </h3>" +
+             "<p>" + informations.lname + "</p>" +
+             "<h3> Age </h3>" +
+             "<p>" + informations.age + "</p>" +
+             "<h3> Student Number </h3>" +
+             "<p>" + informations.snumber + "</p>" +
+             "<h3> Semester </h3>" +
+             "<p>" + informations.semester + "</p>" +
+             "<h3> Status </h3>" +
+             "<p>" + informations.status + "</p>"
+             
+             ;
+        }
+
+    </script>
+
+
+</body>
+</html>
